@@ -1,7 +1,7 @@
 function Main({ activeNote, onUpdateNote }) {
   const onEditField = (key, value) => {
     onUpdateNote({
-      id: activeNote.id,
+      ...activeNote,
       [key]: value,
       lastModified: Date.now(),
     });
@@ -22,7 +22,7 @@ function Main({ activeNote, onUpdateNote }) {
         <textarea
           id="body"
           placeholder="Write Text Here"
-          value={activeNote.title}
+          value={activeNote.body}
           onChange={(e) => onEditField("body", e.target.value)}
         />
       </div>
